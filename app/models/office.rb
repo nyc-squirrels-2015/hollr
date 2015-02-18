@@ -4,8 +4,8 @@ class Office < ActiveRecord::Base
   has_many :reviews, :dependent => :destroy
 
   def avg_review
-    num_reviews = self.reviews.count
-    self.reviews.all.map { |review| review.rating }.inject(:+) / num_reviews
+    num_reviews = reviews.count
+    reviews.all.map { |review| review.rating }.inject(:+) / num_reviews
   end
 
 

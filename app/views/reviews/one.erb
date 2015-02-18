@@ -1,0 +1,30 @@
+<div class="review_one">
+	<% if current_user && current_user.id == review.user.id %>
+		<p>Office: <%= review.office.name %></p>
+		<form action="/reviews/<%= review.user.id %>" method='POST'>
+			<input type="hidden" name="_method" value='PUT'>
+			Title: <input type="text" name="review[title]" value="<%= review.title %>">
+			Rating: <input type="text" name="review[rating]" value="<%= review.rating %>">
+			<p><textarea name="review[content]" cols="50" rows="5"> <%= review.content %></textarea></p>
+			<input type="submit" value="update">
+		</form>
+	<% else %>
+		<p>Office: <%= review.office.name %></p>
+		<p>Title: <%= review.title %></p>
+		<p>Rating: <%= review.rating %> </p>
+		<p><%= review.content %></p>
+	<% end %>
+</div>
+<div class="score">
+	<p>Up votes: <%= review.up_votes %></p>
+	<p>Down votes: <%= review.down_votes %></p>
+	<p>Net score: <%= review.net_votes %></p>
+</div>
+
+<% if current_user && current_user.id == review.user.id %>
+	<form action="/reviews/<%= review.id %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="submit" value="delete">
+	</form>
+<% end %>
+

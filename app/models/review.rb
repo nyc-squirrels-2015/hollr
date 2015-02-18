@@ -8,4 +8,16 @@ class Review < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
   has_many :voters, :through => :votes, :source => :user, :dependent => :destroy
 
+  def up_votes
+    votes.where(verdict: 1).count
+  end
+
+  def down_votes
+    votes.where(verdict: -1).count
+  end
+
+  def net_votes
+    up_votes - down_votes
+  end
+
 end
