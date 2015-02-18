@@ -1,0 +1,12 @@
+<div class="office_profile">
+	<p>Name: <%= office.name %></p>
+	<p>Average rating: <%= office.avg_review %></p>
+	<p>Address:</p>
+	<p><%= office.addr1 %></p>
+	<p><%= office.add2 %></p>
+	<p><%= "#{office.city}, #{office.state} #{office.zip}" %></p>
+</div>
+<div class="office_reviews">
+	<p>Reviews:</p>
+		<%= erb :"/reviews/list_partial", locals: { reviews: office.reviews } %>
+</div>
