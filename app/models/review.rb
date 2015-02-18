@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   #belongs_to :author, :class_name => "User" 
   #why doesn't this work?
   belongs_to :user
-  has_many :votes
-  has_many :voters, :through => :votes, :source => :user
+  has_many :votes, :dependent => :destroy
+  has_many :voters, :through => :votes, :source => :user, :dependent => :destroy
 
 end
