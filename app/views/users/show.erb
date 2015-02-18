@@ -1,0 +1,23 @@
+<% if current_user && current_user.id == user.id %>
+	<div class="edit_user">
+		<form action="/users/<%= user.id %>" method="POST">
+			<input type="hidden" name="_method" value="PUT" >
+			<p>First name: <input type="text" name="user[fname]" value="<%= user.fname %>"></p>
+			<p>Last name: <input type="text" name="user[lname]" value="<%= user.lname %>"></p>
+			<p>E-mail: <input type="text" name="user[email]" value="<%= user.email %>"></p>
+			<p>Password: <input type="password" name="user[password]"></p>
+			<p>Password confirmation: <input type="password" name="user[password_confirmation]"></p>
+			<input type="submit">
+		</form>
+	</div>
+<% else %>
+	<div class="user_profile">
+		<p>Username: <%= user.username %></p>
+		<p>First name: <%= user.fname %></p>
+		<p>Last name: <%= user.lname %></p>
+	</div>
+<% end %>
+<div class="user_reviews"
+		<p>Reviews:</p>
+		<%= erb :"/reviews/list_partial", locals: { reviews: user.reviews } %>
+</div>
