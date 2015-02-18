@@ -1,5 +1,5 @@
 get '/' do
-  erb :welcome
+  redirect '/offices'
 end
 
 get '/login' do

@@ -3,5 +3,10 @@ class Office < ActiveRecord::Base
 
   has_many :reviews
 
+  def avg_review
+    num_reviews = self.reviews.count
+    self.reviews.all.map { |review| review.rating }.inject(:+) / num_reviews
+  end
+
 
 end

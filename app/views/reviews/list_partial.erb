@@ -1,0 +1,19 @@
+<div class="review_list">
+	<table>
+		<tr>
+			<th>rating</th>
+			<th>author</th>
+			<th>title</th>
+			<th>office</th>
+			<th>date</th>
+		</tr>
+		<% reviews.each do |review| %>
+		<%= "</tr><td>#{review.rating}</td>" %>
+		<%= "<td>#{review.user.username}</td>" %>
+		<%= "<td><a href='/reviews/#{review.id}'>#{review.title}</a></td>" %>
+		<%= "<td><a href='/offices/#{review.office.id}'>#{review.office.name}</a></td>" %>
+		<%= "<td>#{ago(review.created_at)}</td></tr>" %>
+		<% end %>
+
+	</table>
+</div>

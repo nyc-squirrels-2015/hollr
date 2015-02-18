@@ -1,0 +1,14 @@
+<div class="office_list">
+	<table>
+		<tr>
+			<th>avg. rating</th>
+			<th>no. reviews</th>
+			<th>office</th>
+		</tr>
+		<% offices.each do |office| %>
+		<%= "<tr><td>#{office.avg_review}</td>" %>
+		<%= "<td>#{office.reviews.count}</td>" %>
+		<%= "<td><a href='/offices/#{office.id}'>#{office.name}</a></td></tr>" %>
+		<% end %>
+	</table>
+</div>
