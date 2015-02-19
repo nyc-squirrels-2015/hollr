@@ -22,9 +22,11 @@
 </div>
 
 <% if current_user && current_user.id == review.user.id %>
-	<form action="/reviews/<%= review.id %>" method="POST">
-		<input type="hidden" name="_method" value="DELETE">
-		<input type="submit" value="delete">
-	</form>
+	<div class="delete_review" >
+		<form action="/reviews/<%= review.id %>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="submit" value="delete">
+		</form>
+	</div>
 <% end %>
 

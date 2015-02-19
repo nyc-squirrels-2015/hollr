@@ -6,7 +6,7 @@ class Review < ActiveRecord::Base
   #why doesn't this work?
   belongs_to :user
   has_many :votes, :dependent => :destroy
-  has_many :voters, :through => :votes, :source => :user, :dependent => :destroy
+  has_many :voters, :through => :votes, :source => :user
 
   def up_votes
     votes.where(verdict: 1).count

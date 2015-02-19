@@ -1,18 +1,22 @@
 <div class="review_list">
-	<table>
-		<tr>
-			<th>rating</th>
-			<th>author</th>
-			<th>title</th>
-			<th>office</th>
-			<th>date</th>
-		</tr>
 		<% reviews.each do |review| %>
-		<%= "</tr><td>#{review.rating}</td>" %>
-		<%= "<td>#{review.user.username}</td>" %>
-		<%= "<td><a href='/reviews/#{review.id}'>#{review.title}</a></td>" %>
-		<%= "<td><a href='/offices/#{review.office.id}'>#{review.office.name}</a></td>" %>
-		<%= "<td>#{ago(review.created_at)}</td></tr>" %>
+			<div class="one-review">
+			<ul>	
+				<% if current_user && current_user.id == review.user.id %>
+					<li>
+						<form action="/reviews/<%= review.id %>" method="POST" class="list-delete">
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="submit" value="delete">
+						</form>
+					</li>
+				<% end %>
+				<li><%= "<td>#{review.rating}</td>" %></li>
+				<li><%= "<td>#{review.user.username}</td>" %></li>
+				<li><%= "<td><a href='/reviews/#{review.id}'>#{review.title}</a></td>" %></li>
+				<li><%= "<td><a href='/offices/#{review.office.id}'>#{review.office.name}</a></td>" %></li>
+				<li><%= "<td>#{ago(review.created_at)}</td>" %></li>
+			</ul>
+			</div>
 		<% end %>
 
 	</table>

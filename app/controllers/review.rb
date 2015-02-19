@@ -22,5 +22,8 @@ end
 delete '/reviews/:id' do |id|
   review = Review.find(id)
   review.destroy
-  redirect '/'
+  unless request.xhr?
+    redirect '/'
+  else "deleted"
+  end
 end
