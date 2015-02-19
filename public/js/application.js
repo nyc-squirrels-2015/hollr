@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  $('.list-delete').on('submit', function(event) {
+  $('.one-review').find('form').on('submit', function(event) {
     event.preventDefault();
     var $target = $(event.target);
 
