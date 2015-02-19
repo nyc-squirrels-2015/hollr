@@ -34,3 +34,8 @@ get '/logout' do
   session.clear
   redirect '/'
 end
+
+get '/session.json' do
+  content_type :json
+  session[:errors].to_json
+end

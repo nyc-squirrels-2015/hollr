@@ -75,3 +75,10 @@ li {
 #title {
     font-weight: bold;
 }
+
+#error {
+    font-size: 0.8em;
+    background-color: #f79727;
+    padding: 10px;
+    text-align: center;
+    }
