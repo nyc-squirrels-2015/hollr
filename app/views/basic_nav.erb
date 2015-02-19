@@ -1,0 +1,12 @@
+<div id="basic_nav">
+  <ul>
+    <li id="title"><a href="/">Hollr Dentist Search</a></li>
+    <li><a href="/reviews">Reviews</a></li>
+    <li><a href="/offices">Dentists</a></li>
+    <% if current_user %>
+    	<li><a href="/logout">Logout</a>
+	<% else %>
+		<li><a href="/login">Login</a>
+	<% end %>
+  </ul>
+</div>

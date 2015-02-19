@@ -68,4 +68,10 @@ code {
 
 li {
     display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#title {
+    font-weight: bold;
 }
