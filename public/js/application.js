@@ -13,42 +13,18 @@ $(document).ready(function() {
     
     })
 
-    
-  //   errorList = [];
-
-  //   function getSessionErrors() {
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: '/session.json',
-  //     success: function(response) { $.each(response, function(x, item) { errorList.push(item); }) },
-  //     error: function(response) { console.log ("FAIL"); }
-  //   })
-  // }
-
-  // var error = {
-  //   show: function(msg) { $('#basic_nav').append('<div id="error">' + msg + '</div>'); },
-  //   hide: function() { $('#error').remove(); }
-  //   }
-
-  //   getSessionErrors();
-
-  //   if (errorList.length > 0)
-  //     error.show(errorList[0]);
-
-  //   console.log(errorList)
-
-  
-
-});
-
-
-errorList = [];
+ 
+  errorList = [];
 
     function getSessionErrors() {
     $.ajax({
       type: 'GET',
       url: '/session.json',
-      success: function(response) { $.each(response, function(x, item) { errorList.push(item); }) },
+      success: function(response) { $.each(response, function(x, item) {
+       errorList.push(item)
+       if (errorList.length == 1)
+        error.show(errorList[0]); 
+      }) },
       error: function(response) { console.log ("FAIL"); }
     })
   }
@@ -58,10 +34,11 @@ errorList = [];
     hide: function() { $('#error').remove(); }
     };
 
-    getSessionErrors();
+    getSessionErrors();   
+ 
 
-    if (errorList.length > 0)
-      error.show(errorList[0]);
+  
+
+});
 
 
-    console.log("errorList is" + errorList);
